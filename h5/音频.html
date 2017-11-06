@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="qwe">
+		<audio src="mp3/1.mp3"></audio>
+		<audio src="mp3/2.mp3"></audio>
+		<audio src="mp3/3.mp3"></audio>
+		<audio src="mp3/4.mp3"></audio>
+		<audio src="mp3/5.mp3"></audio>
+		<audio src="mp3/6.mp3"></audio>
+		<audio src="mp3/7.mp3"></audio>
+		<audio src="mp3/8.mp3"></audio>
+		</div>
+		<div class="gds" style="margin:200px 300px;">
+		<button style="background: red; width: 100px; height: 200px;"></button>
+		<button style="background: green; width: 100px; height: 200px;"></button>
+		<button style="background: greenyellow; width: 100px; height: 200px;"></button>
+		<button style="background: orange; width: 100px; height: 200px;"></button>
+		<button style="background: navy; width: 100px; height: 200px;"></button>
+		<button style="background: gold; width: 100px; height: 200px;"></button>
+		<button style="background: goldenrod; width: 100px; height: 200px;"></button>
+		<button style="background: indigo; width: 100px; height: 200px;"></button>
+		</div>
+		<div id="btn1" style="background: blue; width: 200px;height: 50px;margin:-100px 500px;">播放录制音乐</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script>
+		 $("#btn1").click(function() {
+		 	var str=localStorage.getItem("uuy");
+		 	var arr=JSON.parse(str);
+		 	var a = 0;
+		 	var t =setInterval(function() {
+		 		if (a>=arr.length) {
+		 			clearInterval(t)
+		 			return;
+		 		}
+		 		var i=$("audio").get(arr[a])
+		 		i.load();
+		 		i.play();
+		 		a++
+		 	},500)
+		 })
+		 var arr =[];
+		$("button").mouseover(function() {
+			var a=$(this).index();
+			arr.push(a);
+			var y=JSON.stringify(arr);
+			localStorage.setItem("uuy",y)
+			var i=$("audio").get(a)
+			i.load();
+			i.play();
+		})
+		var arr =[];
+		$(document).keydown(function(e) {
+			var a=e.keyCode -97;
+			arr.push(a);
+			var y=JSON.stringify(arr);
+			localStorage.setItem("uuy",y)
+			var i=$("audio").get(a);
+			i.load();
+	        i.play();
+		})
+	</script>
+</html>

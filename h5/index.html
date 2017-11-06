@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script>
+		var url="http://localhost:8080/ajax/pbl";
+        $.get(url,function(obj) {
+        	var obj = JSON.parse(obj);
+        	var arr =obj.data;
+        	var h ="";
+        	for (var i=0;i<arr.length;i++) {
+        		h += '<figure><img src="'//figure是代表整个图片
+        		h += arr[i].src;
+        		h += '"/ alt=""><figcaption>'//figcaption是图片的描述；
+        		h += arr[i].alt;
+        		h += '</figcaption></figure>';
+        	}
+        	$("body").html(h);
+        })
+	</script>
+</html>
