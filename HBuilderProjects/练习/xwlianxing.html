@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>电话号码</th>
+				<th>地址</th>
+				<th>邮编</th>
+			</tr>
+			<tbody id="tb"></tbody>
+		</table>
+		<script src="underscore-min.js"></script>
+	</body>
+	<script src="fenzhnang5.js"></script>
+	<script type="text/template" id="te">
+	<tr style="background: blueviolet;">
+		<td><%=name%></td>
+		<td><%=age%></td>
+		<td><%=sex%></td>
+		<td><%=phone%></td>
+		<td><%=address%></td>
+		<td><%=qq%></td>
+	</tr>
+	</script>
+	<script>
+		ajax.get({
+			url:"http://localhost:8080/ajax/person",
+			success: function(str) {
+				var obj =JSON.parse(str)
+				var arr =obj.data;
+				var str= document.getElementById("te").innerHTML;
+				var g=_.template(str);
+				var xde="";
+				for (var i=0;i<arr.length;i++) {
+					xde += g(arr[i]);
+				}
+				document.getElementById("tb").innerHTML=xde
+			}
+		})
+	</script>
+</html>

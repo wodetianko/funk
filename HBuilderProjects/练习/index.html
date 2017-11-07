@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#omg {
+				border: 1px solid black;
+				width: 300px;
+				margin: 0 auto;
+				padding: 10px;
+				overflow: hidden;
+			}
+			#cmd {
+				border: 1px dashed gray;
+				height: 260px;
+			}
+			ul{
+				list-style-type: none;
+				padding: 5px;
+				overflow: hidden;
+				height: 300px;
+			}
+			#lpo{
+				background: url(img/utr.jpg);
+				border-radius: 50px;
+				margin: 15px;
+				padding: 20px;
+				position: absolute;
+				top: 15px;
+			}
+			 h4{
+			 	position: absolute;
+				margin: 60px;
+				color: blue;
+				top: -30px;
+				padding: 0;
+			}
+			ul li span{
+				color: orange;
+				float: left;
+				background-color: skyblue;
+				border-radius: 3px;
+				margin: 50px 50px;
+				padding: 3px 10px;
+			}
+			#kop{
+				width: 100%;
+	            margin-top: 5px;
+			}
+			#skt{
+				float: right;
+				width: 100px;
+				height: 30px;
+			}
+			.clear {
+					clear: both;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="omg">
+			<ul id="cmd">
+				<li><p id="lpo"><h4>好汉</h4><span>家具家电驾到驾到解决贷款overflow: hidden;</span></p></li>
+			</ul>
+			<textarea id="kop"></textarea>
+			<div>
+			<button id="skt">发送</button>
+			<div class="clear"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="fenzhang4.js" ></script>
+	<script>
+		var yhname =prompt("好汉，留下大名！");
+			yhname = encodeURIComponent(yhname)
+			pull();
+			setInterval(pull,1000);
+			function pull() {
+			var obj={
+			url:"http://192.168.104.25:8080/ajax/chat",
+			data:"type=query",
+			success:function(str) {
+				var arr = JSON.parse(str);
+				var oUl =document.getElementById("cmd");
+				oUl.innerHTML ="";
+				for (var i=0;i<arr.length;i++) {
+					var o =arr[i]
+					var oLi =document.createElement("li");
+					oLi.innerHTML ="<p style=background:url(img/utr.jpg);width:50px;height:50px;border-radius:50px; >"+o.name+"</p>"+o.content;
+					oUl.appendChild(oLi);
+					oLi.scrollIntoView();
+				}
+			}
+		}
+			ajax.get(obj);
+		}
+				var c=document.getElementById("skt");
+				var d=document.getElementById("kop");
+					c.onclick = function() {
+					var str =d.value;
+					d.value="";
+					str = encodeURIComponent(str)
+					var obj1={
+						url:"http://192.168.104.25:8080/ajax/chat",
+						data:"type=send&sender="+yhname+"&msg="+str,
+						success:function(str) {
+							pull();
+						}
+					};
+					ajax.get(obj1)
+				}	
+	</script>
+</html>

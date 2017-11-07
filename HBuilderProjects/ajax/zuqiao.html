@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<marquee>去吧，皮卡丘</marquee>
+		<button id="omg">加载下一条数据</button>
+		<table id="rty">
+			<tr>
+				<th></th>
+			</tr>
+		</table>
+	</body>
+	<script>
+		var a=document.getElementById("omg");
+		a.onclick=function() {
+			var b=new XMLHttpRequest();
+			b.open("GET","http://localhost:8080/ajax/football");
+			b.send();
+			b.onreadystatechange=function() {
+				if (b.readyState ==4 && b.status ==200) {
+					var str =b.responseText;
+					var obj =JSON.parse(str);
+					gx(obj)
+				}
+			}
+		}
+		function gx(obj) {
+			var oTab=document.getElementById("rty");
+			var arr=obj.data;
+				var oTr =document.createElement("tr");
+				var oTd1 =document.createElement("td");
+				oTd1.style.backgroundColor="orange"
+				oTd1.innerHTML =arr[0].name;
+				oTr.appendChild(oTd1);
+				var oTd2 =document.createElement("td");
+				oTd2.style.backgroundColor="indigo"
+				oTd2.innerHTML =arr[0].content;
+				oTr.appendChild(oTd2);
+				oTab.appendChild(oTr);
+		}
+	</script>
+</html>

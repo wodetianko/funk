@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="background: red; width: 100px;height: 100px;position: absolute;"></div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script>
+		$(function() {
+			fre();
+			function fre() {
+			$("#div1").animate({"left":500,"top":200},2000,function() {
+				$(this).animate({"left":100},2000,fre)
+			});
+			}
+		})
+	</script>
+</html>

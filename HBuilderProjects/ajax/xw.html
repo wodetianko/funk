@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			table{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<marquee>去吧，皮卡丘</marquee>
+		<button id="omg">动态加载新闻</button>
+		<table id="qee">
+			<tr>
+				<th>标题</th>
+				<th>时间</th>
+			</tr>
+		</table>
+	</body>
+	<script>
+		var a=document.getElementById("omg")
+		a.onclick=function() {
+			var b=new XMLHttpRequest();
+			b.open("GET","http://localhost:8080/ajax/news");
+			b.send();
+			b.onreadystatechange=function() {
+				if (b.readyState ==4 && b.status ==200) {
+					var str = b.responseText;
+					var obj = JSON.parse(str);
+					gx(obj)
+				}
+			}
+		}
+		function gx(obj) {
+			var oTab=document.getElementById("qee");
+			var arr=obj.data;
+			for (var i=0;i<arr.length;i++) {
+				var oTr =document.createElement("tr");
+				var oTd1 =document.createElement("td");
+				oTd1.style.backgroundColor="orange"
+				oTd1.innerHTML =arr[i].title;
+				oTr.appendChild(oTd1);
+				var oTd2 =document.createElement("td");
+				oTd2.style.backgroundColor="indigo"
+				oTd2.innerHTML =arr[i].time;
+				oTr.appendChild(oTd2);
+				oTab.appendChild(oTr);
+			}
+		}
+	</script>
+</html>

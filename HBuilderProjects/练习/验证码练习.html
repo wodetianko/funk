@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="jquery.idcode.css"  />
+	</head>
+	<body>
+		<input type="text" id ="Txtidcode" class ="txtVerification">
+		<span id="idcode"></span>
+		<input type="button" id="butn" value="提交">
+		<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="jquery.idcode.js" ></script>
+	</body>
+	<script>
+		$.idcode.setCode();
+		$("#Txtidcode").change(function() {
+			var a=$.idcode.validateCode();
+			if (a==true) {
+				alert("验证成功")
+			} else {
+				alert("重新输入")
+			}
+		})
+	</script>
+</html>

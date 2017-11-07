@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				border: 1px solid black;
+				width: 258px;
+				height: 258px;
+				perspective: 500px;
+			}
+			div img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				backface-visibility: hidden;
+				transform: rotate(0deg);
+				transition: all 5s ease 0s;
+			}
+			div:hover img:nth-child(1) {
+				transform: rotateY(180deg);
+			}
+			div img:nth-child(2) {
+				transform: rotateY(-180deg);
+			}
+			div:hover img:nth-child(2) {
+				transform: rotateY(0deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="day2/img/baby.png" />
+			<img src="day2/img/xiaoming.png" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="omg"><a href="http://www.baidu.com" id="baidu">百度</a><a href="http://www.baidu.com">Google</a></div>
+	</body>
+	<script>
+		var a=document.getElementById("baidu");
+		jd(a).style.color ="red"
+		function jd(s) {
+			var i=s.nextSibling; //s的下一个的兄弟节点
+			while(i.nodeType !=1) { //nodeType对于元素类型的节点。特点nodeType属性是等于1的，这个是当i的元素类型对象判断不等于1
+				i=i.nextSibling; //i的下一个的节点
+			}
+			return i;
+		}
+	</script>
+</html>

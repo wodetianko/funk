@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	</body>
+	<script>
+		setInterval(function () {
+		$.get("http://localhost:8080/ajax/person?s="+new Date().getTime(),function(a) {
+			console.log(a)
+		})
+	},1000)
+	</script>
+</html>

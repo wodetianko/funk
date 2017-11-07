@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="liaotian.css" />
+	</head>
+	<body>
+		<div id="omg">
+			<ul id="box">
+				<li><span>[] </span></li>
+				<li><span>[] </span></li>
+			</ul>
+			<textarea id="msg"></textarea>
+			<div>
+				<button id="btn"> 发送 </button>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="fenzhang4.js" ></script>
+	<script>
+		var yhname =prompt("好汉，留下大名！");
+		yhname = encodeURIComponent(yhname)
+		pull();
+		setInterval(pull,1000);
+		function pull() {
+		var obj={
+		url:"http://192.168.104.25:8080/ajax/chat",
+		data:"type=query",
+		success:function(str) {
+			var arr = JSON.parse(str);
+			var oUl =document.getElementById("box");
+			oUl.innerHTML ="";
+			for (var i=0;i<arr.length;i++) {
+				var o =arr[i]
+				var oLi =document.createElement("li");
+				oLi.innerHTML ="<span>["+o.name+"]</span>"+o.content;
+				oUl.appendChild(oLi);
+				oLi.scrollIntoView();
+			}
+		}
+	}
+		ajax.get(obj);
+}
+		var c=document.getElementById("btn");
+		var d=document.getElementById("msg");
+			c.onclick = function() {
+			var str =d.value;
+			d.value="";
+			
+			
+			str = encodeURIComponent(str)
+			var obj1={
+				url:"http://192.168.104.25:8080/ajax/chat",
+				data:"type=send&sender="+yhname+"&msg="+str,
+				success:function(str) {
+					pull();
+				}
+			};
+			ajax.get(obj1)
+		}	
+	</script>
+</html>

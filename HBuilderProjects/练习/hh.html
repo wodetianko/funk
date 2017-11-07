@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="omg"></div>
+		<div id="opn"></div>
+	</body>
+	<script>
+		function c(a) {
+			document.getElementById("omg").innerHTML=a;
+		}
+		setInterval(myjie,5000);
+		function myjie() {
+			var oOpan=document.getElementById("opn");
+			oOpan.innerHTML ="";
+			var oScript=document.createElement("script")
+			oScript.src="http://localhost/huoq.js";
+			oOpan.appendChild(oScript);
+		}
+	</script>
+</html>

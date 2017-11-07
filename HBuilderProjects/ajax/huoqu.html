@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<marquee>去吧，皮卡丘</marquee>
+		<button id="omg">加入人员数据</button>
+	</body>
+	<script>
+		var a=document.getElementById("omg")
+		a.onclick =function() {
+			var b=new XMLHttpRequest();
+			b.open("GET","http://localhost:8080/ajax/person",true);
+			b.send();
+			b.onreadystatechange=function() {
+				if (b.readyState ==4 && b.status ==200) {
+					var str = b.responseText;
+					var obj = JSON.parse(str);
+					gx(obj)
+					}
+				}
+			}
+		function gx(obj) {
+			var oTable = document.createElement("table");
+			var arr =obj.data;
+			for (var i =0;i<arr.length;i++) {
+				var oTr =document.createElement("tr");
+				var o =arr[i]
+				for (var j in o) {
+				var oTd =document.createElement("td");
+				oTd.innerHTML =o[j]
+				oTr.appendChild(oTd);
+				}
+				oTable.appendChild(oTr);
+			    }
+				document.body.appendChild(oTable)
+		    }
+	</script>
+</html>

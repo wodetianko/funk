@@ -1,0 +1,176 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#skt {
+	width: 1000px;
+	margin: 0 auto;
+	padding-left: 150px;
+	clear: both;
+}
+.wqq {
+	margin: 40px -80px;
+	position: relative;
+	background: url(../img/icon.png)center -532px no-repeat;
+	height: 47px;
+}
+.wqq a {
+	display: block;
+	width: 788px;
+	height: 40px;
+	background: url(../img/icon.png)0 -739px no-repeat;
+}
+a {
+	text-decoration: none;
+	color: #878787;
+}
+#actionContainer {
+	width: 1000px;
+	height: 675px;
+	right: 80px;
+	overflow: hidden;
+	position: relative;
+}
+#actionContainer ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#actionContainer ul li .v2 {
+	display: block;
+	width: 1000px;
+	height: 675px;
+	background: #ffffff;
+	float: left;
+}
+#actionContainer ul li a {
+	display: block;
+}
+a {
+	text-decoration: none;
+	color: #878787;
+}
+#actionContainer ul li a img {
+	width: 1000px;
+	height: 475px;
+}
+.osm-bar {
+	widows: 100%;
+	clear: both;
+    float: left;
+    position: relative;
+    font-size: 13px;
+    bottom: 190px;
+    z-index: 1;
+    right: 80px;
+}
+.osm-cls {
+	position: relative;
+	border-bottom: 1px solid #ededed;
+	float: left;
+	width: 1000px;
+}
+.osm-cls li {
+	float: left;
+	zoom: 1;
+	position: relative;
+    padding: 6px 20px 5px 0px;
+    height: 25px;
+    border-bottom: 2px solid #ededed;
+    margin: 15px 0px -1px 0px;
+}
+.osm-cls li a {
+	width: 70px;
+    text-align: center;
+    display: block;
+    zoom: 1;
+    margin-top: 1px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle
+}
+.osm-cls li a.new {
+	background: url(../img/icon.png)-173px -584px no-repeat;
+	text-align: right;
+}
+.ctxt{
+	color: #333;
+	font-size: 15px;
+}
+#mod {
+	list-style: none;
+	position: relative;
+	border-bottom: 1px solid #ededed;
+	float: left;
+	width: 900px;
+}
+#mod li {
+	float: left;
+	zoom: 1;
+	position: relative;
+    padding: 6px 20px 5px 0px;
+    height: 25px;
+    border-bottom: 2px solid #ededed;
+    margin: 15px 0px -1px 0px;
+}
+#mod li a {
+	width: 70px;
+    text-align: center;
+    display: block;
+    zoom: 1;
+    margin-top: 1px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle
+}
+#lol {
+	list-style: none;
+	position: relative;
+	float: left;
+	width: 900px;
+}
+#lol li {
+	float: left;
+	zoom: 1;
+	width: 880px;
+	position: relative;
+    padding: 6px 20px 5px 0px;
+    height: 25px;
+    border-bottom: 2px solid #ededed;
+    margin: 15px 0px -1px 0px;
+}
+#lol li a {
+	width: 70px;
+    text-align: center;
+    display: block;
+    zoom: 1;
+    margin-top: 1px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle
+}
+.osm-price {
+	width: 142px;
+	margin: -143px 0 0;
+	text-align: right;
+	border-bottom: 2px solid #ededed;
+	float: right;
+	height: 24px;
+	padding: 7px 18px 5px 0px;
+	position: relative;
+	cursor: pointer;
+	z-index: 1;
+}
+.osm-price .arrow {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 5px;
+	width: 12px;
+	height: 20px;
+	zoom: 1;
+	transition: transform 0.3s ease-out;
+	background: url(../img/icon.png)-188px -385px no-repeat;
+}
+
+

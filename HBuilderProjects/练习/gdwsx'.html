@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<marquee>去吧，皮卡丘</marquee>
+		<button id="omg">动态加载新闻</button>
+		<table id="qee">
+			<tr>
+				<th>标题</th>
+				<th>时间</th>
+			</tr>
+		</table>
+		<script src="underscore-min.js"></script>
+		<script src="fenzhnang5.js"></script>
+	</body>
+	<script type="text/template" id="te">
+			<tr style="background: green;">
+				<th>标题</th>
+				<td><%=title%></td>
+				<th>时间</th>
+				<td><%=time%></td>
+			</tr>
+	</script>
+	<script>
+				var oOmg=document.getElementById("omg");
+				oOmg.onclick=function() {
+		ajax.get({
+			url:"http://localhost:8080/ajax/news",
+			success:function(str) {
+				var obj =JSON.parse(str)
+				var arr =obj.data;
+				var str= document.getElementById("te").innerHTML;
+				var g=_.template(str);
+				var xde="";
+				for (var i=0;i<arr.length;i++) {
+					xde += g(arr[i]);
+				}
+				document.getElementById("qee").innerHTML=xde
+	          },
+		})
+		}
+	</script>
+</html>

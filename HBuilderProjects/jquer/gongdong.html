@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 2000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="omg" style="width: 100px;height: 100px;background: blue;position: absolute;"></div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script>
+		$("body,html").animate({"scrollTop":500})
+		$(document).scroll(function() {
+			var a=$(document).scrollTop()
+			$("#omg").stop(true).animate({"top":a+200},50);
+		})
+	</script>
+</html>

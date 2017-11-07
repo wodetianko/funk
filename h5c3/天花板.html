@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.omg {
+				perspective: 600px;
+				margin: 200px;
+			}
+			  .qwe {
+				position: relative;
+				transform-style: preserve-3d;
+				transition: all 5s ease 0s;
+			}
+			.omg:hover .qwe {
+				transform: rotateX(-90deg);
+			}
+			.qwe img{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.qwe img:nth-child(2) {
+				transform: rotateX(90deg) translateZ(129px);
+			}
+			.qwe img:nth-child(1) {
+				transform: translateZ(129px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="omg">
+			<div class="qwe">
+				<img src="day2/img/xiaoming.png" />
+				<img src="day2/img/baby.png" />
+		    </div>
+		</div>
+	</body>
+</html>

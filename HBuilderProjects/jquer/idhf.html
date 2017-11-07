@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<div class="box1">
+			<p>box1 -1 </p>
+			<p class="teshu">box1 -2 </p>
+			<p class="teshu">box1 -3 </p>
+			<p>box1 -4 </p>
+		</div>
+		<div class="box2">
+			<p class="teshu">0 </p>
+			<p class="teshu">1 我想红！我想当明星！</p>
+			<p>2</p>
+			<p>3</p>
+		</div>
+		<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	</body>
+	<script>
+		$(".box2 p").each(function(i) {
+			$(this).css({"color":"red"})
+		})
+	</script>
+</html>

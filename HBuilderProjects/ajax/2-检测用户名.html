@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form>
+			<p>
+				用户名： <input type="text" id="username" />
+				<span id="omg" style="display: none;">可以注册</span>
+			</p>
+			
+			<p>
+				密  码： <input type="password" />
+			</p>
+			
+			<p>
+				<button>注册</button> 
+				<input type="reset" value="重置"/>
+			</p>
+		</form>
+
+
+<script>
+
+var oUsername = document.getElementById("username");
+
+oUsername.onblur = function() {
+	var b=document.getElementById("omg");
+	
+	// 取出用户名
+	var str = oUsername.value;
+	var a=new XMLHttpRequest();
+	a.open("GET","http://localhost:8080/ajax/checkname?regname=" + str,true);
+	a.send();
+	a.onreadystatechange=function() {
+		if (a.readyState==4 && a.status ==200) {
+			var str=a.responseText;
+			if (str == "true") {
+				b.style.display="block"
+			} else {
+				b.innerHTML="不可以注册"
+			}
+		}
+	}
+	//console.log("失去焦点了", str)
+	
+	
+	//var url = "http://localhost:8080/ajax/checkname?regname=" + str; 
+	//console.log(url)
+
+//     15分钟练习  11:20对对
+//http://localhost:8080/ajax/checkname
+//regname=XX
+//http://localhost:8080/ajax/checkname?regname=张三
+	// 通过ajax来验证 str 是否已经注册，
+//	如果返回的结果是 true代表可以使用；
+//	如果返回的结果是 false 代表不可以用g
+}
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="http://www.css88.com/doc/underscore1.8.2/underscore-min.js "></script>
+		<script>
+			function obj() {
+			var str="<li><span><%=name%></span><%=content%></li>";
+			var data={
+				"name":"徐佳",
+				"content":18
+			}
+			var a=_.template(str)
+			console.log(a(data));
+		}
+			obj()
+		</script>
+	</body>
+</html>

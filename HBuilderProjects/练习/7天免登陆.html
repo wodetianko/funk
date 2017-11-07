@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 body{
+			    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+		    }
+		    .roundedCorners{ 
+			    width:220px; padding:10px;
+			    background-color:#DDEEF6; 
+			    box-shadow: 0px 0px 10px 0px #888888;
+			    border:1px solid #DDEEF6;
+			    border-radius:6px;
+			    margin: auto;
+		    }
+		    .roundedCorners-textbox{ 
+				border:1px solid #999; width:160px;
+		    }
+			.checkbox {
+				margin-left: 30px;
+				border:1px solid #999; width:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<form >	
+		<div class="roundedCorners">
+			<label>账号</label>&nbsp;
+			<input id="username" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label>密码</label>&nbsp;
+			<input id="password" type="text" class="roundedCorners-textbox" /><br /><br />	
+		    	<input id="savePwd" type="checkbox" class="checkbox" />
+				<label>7天内免登陆</label>
+		    	<br/><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="确定" id="btnLogin" />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="清空" />  <!--reset系统默认清空-->
+		</div>
+	</form>	
+		<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="jquery.cookie.js" ></script>
+	</body>
+	<script>
+		$(function() {
+			var a=$.cookie("a");
+			var b=$.cookie("b");
+			if (a!=undefined && b!=undefined) {
+				$("#username").val(a);
+				$("#password").val(b);
+			}
+		})
+		$("#btnLogin").click(function() {
+			if ($("#savePwd").is(":checked")) {
+				var a=$("#username").val();
+				var b=$("#password").val();
+				$.cookie("a",a,{expires:7});
+				$.cookie("b",b,{expires:7});
+				alert("勾选成功")
+		   } else {
+		   	alert("没勾选")
+		   }
+		})
+	</script>
+</html>

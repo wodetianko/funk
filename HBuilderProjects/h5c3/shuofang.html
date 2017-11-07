@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img:nth-child(1)[src] {
+				transform: scale(0.2,0.2);
+				transition: all 1s ease 0.1s;
+			}
+			img:nth-child(1):hover {
+				transform: scale(1,1);
+			}
+			img:nth-child(2)[src] {
+				transform: rotate(0deg);
+				transition: all 5s ease 0s; 
+			}
+			img:nth-child(2):hover { 
+				transform: rotate(84470deg);
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/12.jpg" />
+		<img src="img/17.jpg" />
+	</body>
+</html>

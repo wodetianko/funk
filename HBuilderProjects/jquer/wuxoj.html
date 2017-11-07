@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="omg"></div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script src="jquery.raty.js"></script>
+	<script>
+		 $.fn.raty.defaults.path = 'js/images';
+		 $(function() {
+		 	$("#omg").raty({
+		 		score:3,
+		 		click:function(omg) {
+		 			console.log(omg);
+		 		}
+		 	});
+		 })
+	</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="fenzhnang5.js"></script>
+		<script>
+			var obj={
+				url:"http://localhost:8080/ajax/football",
+				data:{
+					pageNo:2,
+					pageCount:1
+				},
+				success:function(str) {
+					console.log(str);
+				}
+			};
+			ajax.get(obj);
+		</script>
+	</body>
+</html>
