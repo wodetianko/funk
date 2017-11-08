@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				margin: 200px;
+				width: 100px;
+				height: 100px;
+				background: blueviolet;
+				/* 圆球*/
+				border-radius: 50%;
+				position: absolute;
+				left: 300px;
+				top: 200px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<div id="box4"></div>
+		<div id="box5"></div>
+		<div id="box6"></div>
+		<div id="box7"></div>
+		<div id="box8"></div>
+		<div id="box9"></div>
+		<div id="box10"></div>
+		<div id="box11"></div>
+		<div id="box12"></div>
+		<div id="box13"></div>
+		<div id="box14"></div>
+	</body>
+	<script>
+		function hu(e) {
+			return Math.PI * e / 180;
+		}
+		function rew(r,d,id,t) {
+		var oBox = document.getElementById(id);
+		setInterval(function() {
+			var x = r * Math.cos(hu(d)) +350;
+			var y = r * Math.sin(hu(d)) +300;
+			x -=50;
+			y -=100;
+			oBox.style.left = x + "px";
+			oBox.style.top = y + "px";
+			d +=10;
+		},t);
+	}
+		rew(100,0,"box",100);
+		rew(100,50,"box2",100);
+		rew(100,100,"box3",100);
+		rew(100,150,"box4",100);
+		rew(100,200,"box5",100);
+		rew(100,250,"box6",100);
+		rew(100,300,"box7",100);
+		rew(200,0,"box8",100);
+		rew(200,50,"box9",100);
+		rew(200,100,"box10",100);
+		rew(200,150,"box11",100);
+		rew(200,200,"box12",100);
+		rew(200,250,"box13",100);
+		rew(200,300,"box14",100);
+	</script>
+</html>

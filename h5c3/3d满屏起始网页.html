@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.logo {
+				width: 251px;
+	            height: 186px;
+	            background: url(img/logo.png) no-repeat;
+	            background-position-y: 50px;
+	            padding-top: 50px;
+	            margin: 0px auto;
+			}
+			.li1 .text{
+				margin-top: 50px; 
+				text-align: center;
+			}
+			.li1 .text img {
+				margin: 0 15px;
+				opacity: 0;
+				transition: all 3s;
+			}
+			.section.current .text img {
+				margin: 0;
+				opacity: 1;
+			}
+			.li1 .info {
+				width: 772px;
+	            height: 49px;
+	            margin: 10px auto;
+	            background: url(img/info_1.png);
+			}
+			.li2 {
+				padding-top: 70px;
+			}
+			.li2 .left {
+				float: left;
+				width: 430px;
+				margin: 0px 70px;
+			}
+			.li2 .right {
+				float: left;
+				padding: 50px;
+			}
+			.li2 .left img {
+				transition: all 3s;
+			}
+			.li2 .left img:nth-child(1) {
+				transform: translate(120px, 200px) rotate(45deg);
+			}
+			
+			.li2 .left img:nth-child(2) {
+				transform: translate(330px, 30px) rotate(-45deg);
+			}
+			
+			
+			.li2 .left img:nth-child(3) {
+				transform: translate(220px, 100px) rotate(137deg);
+			}
+			
+			.li2 .left img:nth-child(4) {
+				transform: translate(560px, 100px) rotate(34deg);
+			}
+			
+			
+			.li2 .left img:nth-child(5) {
+				transform: translate(30px, 200px) rotate(45deg);
+			}
+			
+			.li2 .left img:nth-child(6) {
+				transform: translate(130px, 200px) rotate(45deg);
+			}
+			
+			.li2 .left img:nth-child(7) {
+				transform: translate(160px, 200px) rotate(-45deg);
+			}
+			
+			.li2 .left img:nth-child(8) {
+				transform: translate(160px, 200px) rotate(-25deg);
+			}
+			
+			.li2 .left img:nth-child(9) {
+				transform: translate(160px, 200px) rotate(-15deg);
+			}
+            .li2.current .left img {
+            	transform: none;
+            }
+ 		</style>
+	</head>
+	<body>
+		<div class="omg">
+			<div class="section li1">
+			<div class="logo"></div>
+			<div class="text">
+			    <img src="img/text_1.png" alt="">
+				<img src="img/text_2.png" alt="">
+				<img src="img/text_3.png" alt="">
+				<img src="img/text_4.png" alt="">
+				<img src="img/text_5.png" alt="">
+				<img src="img/text_6.png" alt="">
+				<img src="img/text_7.png" alt="">
+				<img src="img/text_8.png" alt="">
+			</div>
+			<div class="info"></div>
+		</div>
+		<div class="section li2">
+			<div class="left">
+			  <img src="img/shield_1.png" />
+			  <img src="img/shield_2.png" />
+			  <img src="img/shield_3.png" />
+			  <img src="img/shield_4.png" />
+			  <img src="img/shield_5.png" />
+			  <img src="img/shield_6.png" />
+			  <img src="img/shield_7.png" />
+			  <img src="img/shield_8.png" />
+			  <img src="img/shield_9.png" />
+			</div>
+			<div class="right">
+				<img src="img/info_2.png" />
+			</div>
+		</div>
+		<div class="section li3"></div>
+	</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+	<script type="text/javascript" src="jquery.fullPage.min.js" ></script>
+	<script>
+		$(".omg").fullpage({sectionsColor:['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+			afterLoad: function (anchorLink, index) {
+				$(".section").removeClass("current");
+				setTimeout(function() {
+					$(".section").eq(index-1).addClass("current");
+				},100);
+			}
+		});
+	</script>
+</html>

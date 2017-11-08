@@ -35,9 +35,6 @@
 				left: 300px;
 				top: 135px;
 			}
-			.unit ul li:nth-child(9) img{
-				transform: rotateY(45deg);
-			}
 		</style>
 	</head>
 	<body>
@@ -61,7 +58,20 @@
 	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
 	<script>
 		$(".unit ul li").each(function(i) {
-			$(this).css("transform","rotateY("+(i*40)+"deg),translateZ(400px)");
+			$(this).css("transform","rotateY("+(i*40)+"deg)translateZ(400px)");
+			})
+			$(".stage").mousedown(function(e) {
+				e.preventDefault();
+				var a =e.clientX;
+				var b =e.clientY;
+				$(document).mousemove(function(e) {
+					var x=e.clientX -a;
+					var y=e.clientY -b;
+					$(".unit").css({transform:"rotateX("+(-y/5)+"deg) rotateY("+x/5+"deg)"});
+				})
+				$(document).mouseup(function() {
+					$(document).off("mousemove")
+				})
 		})
 	</script>
 </html>

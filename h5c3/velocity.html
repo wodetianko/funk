@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+				div{
+				width: 258px;
+				height: 258px;
+				border: 1px solid #000000;
+				perspective: 1000px;
+			}
+			img{
+				border: 1px solid #000000;
+			}
+			p{
+				width: 258px;
+				height: 258px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="点我" />
+		
+		<div>
+			<img src="day2/img/xiaoming.png"/>
+		</div>
+		<p>p</p>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.js" ></script>
+    <script type="text/javascript" src="velocity.min.js" ></script>
+    <script>
+    	$("input").click(function() {
+    		$("img").velocity({rotateX:"40deg",translateZ:"200px"},2000,function() {
+    			$("img").fadeOut();
+    		});
+    	})
+    </script>
+</html>
