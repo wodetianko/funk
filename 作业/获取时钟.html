@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				background: black;
+			}
+			img {
+				width: 50px;
+			}
+			div {
+				width: 600px;
+				height: 60px;
+				padding-top: 300px;
+				margin-left: 500px;
+				font-size: 40px;
+				color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			北京时间
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+			:
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+			:
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+		</div>
+	</body>
+	<script>
+		var a =document.getElementsByTagName("img");
+		function bianl() {
+			var oDate=new Date();
+			var b=xh(oDate.getHours())+xh(oDate.getMinutes())+xh(oDate.getSeconds());   
+		    for (var i=0;i<a.length;i++) {
+		    	a[i].src ="img/"+b[i]+".png";
+		    }
+		}
+		bianl();
+		setInterval(bianl,1000);
+		function xh(e) {
+			if (e<10) {
+				return '0'+e;
+			} else {
+				return ''+e;
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 199px;
+				height: 238px;
+				background: url(img/jian.png)no-repeat;
+				background-position: 0px -216px;
+				position: absolute;
+				top: 100px;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			function jiansheng(left,top,hjshud,hjjiez) {
+				this.left =left;
+				this.top =top;
+				this.hjshud =hjshud;
+				this.hjjiez =hjjiez;
+				this.buzi =0;
+				this.timer =null;
+				this.dom =null;
+				this.og = function() {
+					this.dom =document.createElement("div");
+					document.body.appendChild(this.dom);
+					this.dom.style.left=this.left + "px";
+					this.dom.style.top=this.top + "px";
+				}
+				this.lisgo = function() {
+					var cuic =this;
+					this.timer = setInterval(function() {
+						cuic.left++;
+						cuic.huijz++;
+						cuic.buzi++;
+						if (cuic.buzi >5) {
+							cuic.buzi =1;
+						}
+						if (cuic.left >200) {
+							cuic.gg();
+						}
+						cuic.dom.style.left=cuic.left + 'px';
+						cuic.dom.style.backgroundPosition=cuic.buzi* -99 + 'px -126px';       
+					},this.hjshud,this.hjjiez);
+				}
+				this.gg =function() {
+					clearInterval(this.timer);
+					document.body.removeChild(this.dom);
+				}
+				this.og();
+				this.lisgo();
+			}
+		setInterval(function() {
+			new jiansheng()
+		    },1000);
+		</script>
+	</body>
+</html>
