@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body>
+		<h1 id="biaoti"></h1>
+	</body>
+	<script>
+		var biaoti =document.getElementById("biaoti");
+		document.addEventListener("touchstart",function(e) {
+			e.preventDefault();
+			biaoti.innerHTML="你正在用" +e.touches.length + "跟手指触摸页面";	
+		},false);
+		document.addEventListener("touchmove",function(e) {
+			e.preventDefault();
+			biaoti.innerHTML ="";
+			for (var i=0;i<e.touches.length;i++) {
+				biaoti.innerHTML +="第" +(i+1) +"根手指信息<br />";
+				biaoti.innerHTML +=e.touches[i].clientX + "<br />" +e.touches[i].clientY;
+			}
+		},false);
+		document.addEventListener("touchend",function(e) {
+			e.preventDefault();
+			biaoti.innerHTML ="触摸结束了";
+		},false);
+	</script>
+</html>

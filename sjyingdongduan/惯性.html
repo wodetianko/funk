@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <style>
+	    	* {
+	    		padding: 0;
+	    		margin: 0;
+	    	}
+	    	div {
+	    		width: 60px;
+	    		height: 60px;
+	    		background: orange;
+	    		position: absolute;
+	    		top: 100px;
+	    		left: 100px;
+	    	}
+	    	.line {
+	    		width: 1px;
+	    		position: absolute;
+	    		height: 600px;
+	    		left: 500px;
+	    		background: black;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div></div>
+		<span class="line"></span>
+	</body>
+	<script>
+		var a=document.querySelector("div");
+		var Dx;
+		var Nx=100;
+		var moveArr =[];
+		a.addEventListener("touchstart",function(e) {
+			e.preventDefault();
+			a.style.transition ="none";
+			Dx =e.touches[0].clientX - Nx;
+		},false);
+		a.addEventListener("touchmove",function(e) {
+			e.preventDefault();
+			Nx =e.touches[0].clientX -Dx;
+			a.style.left=Nx+"px";
+			moveArr.push(e.touches[0].clientX);
+		},false);
+		
+		a.addEventListener("touchend",function(e) {
+			e.preventDefault();
+			var s=moveArr[moveArr.length -1] -moveArr[moveArr.length -2]
+			var targetX =Nx +s *5;
+			if (targetX >440) {
+				targetX =440;
+				a.style.transition ="all 0.4s cubic-bezier(0.15,0.85,0.15,2.08)0s";	
+			} else if (targetX <0) {
+				targetX =0;
+				a.style.transition ="all 0.4s cubic-bezier(0.18,0.85,0.15,2.08)0s";
+			} else{
+				a.style.transition ="all 0.4s cubic-bezier(0.18,0.68,0.65,0.88)0s"; 
+			}
+			a.style.left =targetX +"px";
+			Nx =targetX;
+		},false);
+	</script>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				overflow: hidden;
+			}
+			.carousel {
+				width: 100%;
+				height: 300px;
+				overflow: hidden;
+				border-bottom: 11px solid black;
+				position: relative;
+			}
+			.carousel ul {
+				list-style: none;
+			}
+			.carousel ul li {
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+			}
+			.carousel ul li img {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="carousel" id="carousel">
+			<div class="imageList">
+			<ul>
+				<li><a href="#"><img src="img/12.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/17.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/8.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/9.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+	</body>
+	<script>
+		var a =document.getElementById("carousel");
+		var imgL=a.getElementsByClassName("imageList")[0].getElementsByTagName("li");
+		var idx =0;
+		var next =1;
+		var prev =4;
+		var windowWidth;
+		init();
+		window.onresize = init;
+		function init() {
+			windowWidth =document.documentElement.clientWidth;
+			a.style.height =windowWidth *(130 / 200) + "px";
+			for (var i=1;i<imgL.length;i++) {
+				imgL[i].style.webkitTransform ="translateX("+windowWidth+ "px)";
+			}
+			imgL[idx].style.transition ="none";
+			imgL[next].style.transition ="none";
+			imgL[prev].style.transition ="none";
+			imgL[idx].style.webkitTransform ="translateX(0px)";
+			imgL[next].style.webkitTransform ="translateX("+windowWidth+"px)";
+			imgL[prev].style.webkitTransform ="translateX("+ -windowWidth+"px)";
+		}
+		a.addEventListener("touchstart",tsh,false);
+		a.addEventListener("touchmove",tmh,false);
+		a.addEventListener("touchend",teh,false);
+		var deX;
+		var stX;
+		var starTime;
+		var timer =setInterval(function() {
+			showNext();
+		},4000);
+		function tsh(e) {
+			e.preventDefault();
+			if (e.touches.length >1) {
+				return;
+			}
+			clearInterval(timer);
+			deX = e.touches[0].clientX;
+			stX =e.touches[0].clientX;
+			imgL[idx].style.transition ="none";
+		    imgL[next].style.transition ="none";
+		    imgL[prev].style.transition ="none";
+		    starTime =new Date();
+		    imgL[idx].style.webkitTransform ="translateX(0px)";
+		    imgL[next].style.webkitTransform ="translateX("+windowWidth+"px)";
+		    imgL[prev].style.webkitTransform ="translateX("+ -windowWidth+"px)";
+		}
+		function tmh(e) {
+			e.preventDefault();
+			if (e.touches.length>1) {
+				return;
+			}
+			clearInterval(timer);
+			var clientX =e.touches[0].clientX;
+			imgL[idx].style.webkitTransform ="translateX("+(clientX-deX) +"px)";
+			imgL[next].style.webkitTransform ="translateX("+(windowWidth+clientX-deX) +"px)";
+			imgL[prev].style.webkitTransform ="translateX("+(-windowWidth+clientX-deX) +"px)";	
+		}
+		function teh(e) {
+			e.preventDefault();
+			var b=e.changedTouches[0].clientX - stX;
+		    clearInterval(timer);
+		    var time =new Date() -starTime;
+		    if (b>=windowWidth /2 || b>30 && time<300){
+		    	showPrev();
+		    } else if(b<= -windowWidth /2||b<-30 && time <300) {
+		    	showNext();
+		    } else {
+		    	imgL[idx].style.transition ="all 2.3s ease 0s";
+		    	imgL[next].style.transition ="all 2.3s ease 0s";
+		    	imgL[prev].style.transition ="all 2.3s ease 0s";
+		    	imgL[idx].style.webkitTransform ="translateX(0px)";
+		    	imgL[next].style.webkitTransform ="translateX("+windowWidth+"px)";
+		        imgL[prev].style.webkitTransform ="translateX("+ -windowWidth+"px)";
+		    }
+		    timer =setInterval(function() {
+		    	showNext();
+		    },4000);
+		}
+		function showPrev() {
+			next =idx;
+			idx =prev;
+			prev--;
+			if (prev<0) {
+				prev =4;
+			}
+			imgL[next].style.transition ="all 2.3 ease 0s";
+			imgL[idx].style.transition ="all 2.3 ease 0s";
+			imgL[prev].style.transition ="none";
+			imgL[idx].style.webkitTransform = "translateX(0px)";
+		    imgL[next].style.webkitTransform = "translateX("+windowWidth +"px)";
+		    imgL[prev].style.webkitTransform = "translateX("+ -windowWidth +"px)";
+		}
+		function showNext() {
+			prev =idx;
+			idx =next;
+			next++;
+			if (next >4) {
+				next =0;
+			}
+			imgL[next].style.transition ="none";
+			imgL[idx].style.transition ="all 2.3s ease 0s";
+			imgL[prev].style.transition ="all 2.3s ease 0s";
+			imgL[idx].style.webkitTransform ="translateX(0px)";
+			imgL[next].style.webkitTransform ="translateX("+ windowWidth +"px)";
+			imgL[prev].style.webkitTransform ="translateX("+ -windowWidth +"px)";
+		}
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			header {
+				margin-left: 500px;
+				margin-top: 200px;
+			}
+			img:nth-child(1) {
+				position: absolute;
+				transform: rotate(0deg);
+				transition: all 3s ease 0s;  
+			}
+			img:nth-child(2) {
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<header id="yrt">
+			<img src="plate.png" id="omg"/>
+			<img src="hand.png" id="qwe"/>
+		</header>
+	</body>
+	<script type="text/javascript" src="../jquery-3.2.1.js" ></script>
+	<script>
+		$("#qwe").click(function() {
+			var a=parseInt(Math.random()*8)+1;
+			a--;
+			var d=360 -a*45;
+			var n=parseInt(Math.random()*8);
+			d+=360 *n;
+			$("#omg").css({transform: "rotate("+d+"deg)"})
+			var h=a;
+		})
+		
+	</script>
+</html>
