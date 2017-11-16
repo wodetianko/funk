@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/cssreset-min.css" />
+		<link rel="stylesheet" href="css/styles/swiper.min.css" />
+		<link rel="stylesheet" href="xiec.css" />
+	</head>
+	<body>
+		<header>
+			<div class="soso">
+				<div class="soso_box">
+					<input type="text" placeholder="搜索：目的地、酒店、景点航班"/>
+				</div>
+				<div class="user">
+					<a href="#">我　的</a>
+				</div>
+			</div>
+		</header>
+		<section class="banner">
+			<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="img/12.jpg" /></div>
+				<div class="swiper-slide"><img src="img/17.jpg" /></div>
+				<div class="swiper-slide"><img src="img/4.jpg" /></div>
+			</div>
+			</div>
+		</section>
+	    <nav>
+	    	<div class="row">
+				<ul>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+				</ul>
+			</div>
+	    	<div class="row">
+				<ul>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+				</ul>
+			</div>
+	    	<div class="row">
+				<ul>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+				</ul>
+			</div>
+	    	<div class="row">
+				<ul>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					<li><div><a href="#">团购</a></div></li>
+					
+				</ul>
+			</div>
+	    </nav>
+	    <section class="products">
+	    	<ul>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    		<li><a href="#">自由行</a></li>
+	    	</ul>
+	    </section>
+	</body>
+	<script type="text/javascript" src="js/scripts/swiper.min.js" ></script>
+	<script>
+		var a=document.querySelector(".banner");
+		setBanner();
+		window.onresize = setBanner;
+		function setBanner() {
+			var bWidth =parseInt(getComputedStyle(a)["width"]);
+			a.style.height =bWidth /(750 / 350) + "px";
+		}
+		var b=new Swiper(".swiper-container" ,{
+			 autoplay: 3000,
+		})
+	</script>
+</html>
